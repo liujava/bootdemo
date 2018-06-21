@@ -36,15 +36,35 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- import lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>test</scope>
+			<scope>provided</scope>
 		</dependency>
+
+		<!--jsp支持-->
+		<!-- servlet 依赖. -->
+		<!--<dependency>-->
+			<!--<groupId>javax.servlet</groupId>-->
+			<!--<artifactId>javax.servlet-api</artifactId>-->
+			<!--<scope>provided</scope>-->
+		<!--</dependency>-->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
+		<!-- tomcat 的支持.-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -54,6 +74,33 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<!--<resources>-->
+
+			<!--&lt;!&ndash; 打包时将jsp文件拷贝到META-INF目录下 &ndash;&gt;-->
+			<!--<resource>-->
+				<!--&lt;!&ndash; 指定resources插件处理哪个目录下的资源文件 &ndash;&gt;-->
+				<!--<directory>src/main/webapp</directory>-->
+				<!--&lt;!&ndash;注意此次必须要放在此目录下才能被访问到 &ndash;&gt;-->
+				<!--<targetPath>META-INF/resources</targetPath>-->
+				<!--<includes>-->
+					<!--<include>**/**</include>-->
+				<!--</includes>-->
+			<!--</resource>-->
+			<!--<resource>-->
+				<!--<directory>src/main/resources/lib</directory>-->
+				<!--<targetPath>BOOT-INF/lib/</targetPath>-->
+				<!--<includes>-->
+					<!--<include>**/*.jar</include>-->
+				<!--</includes>-->
+			<!--</resource>-->
+			<!--<resource>-->
+				<!--<directory>src/main/resources</directory>-->
+				<!--<includes>-->
+					<!--<include>**/**</include>-->
+				<!--</includes>-->
+				<!--<filtering>false</filtering>-->
+			<!--</resource>-->
+		<!--</resources>-->
 	</build>
 
 
