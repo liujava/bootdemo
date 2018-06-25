@@ -65,6 +65,22 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- mybatis mysql 依赖 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -73,10 +89,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.6</version>
+				<configuration>
+					<configureFile>generatorConfig.xml</configureFile>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
+			</plugin>
 		</plugins>
 		<!--<resources>-->
-
-			<!--&lt;!&ndash; 打包时将jsp文件拷贝到META-INF目录下 &ndash;&gt;-->
+			<!--&lt;!&ndash;&lt;!&ndash; 打包时将jsp文件拷贝到META-INF目录下 &ndash;&gt;&ndash;&gt;-->
 			<!--<resource>-->
 				<!--&lt;!&ndash; 指定resources插件处理哪个目录下的资源文件 &ndash;&gt;-->
 				<!--<directory>src/main/webapp</directory>-->
@@ -94,13 +120,25 @@
 				<!--</includes>-->
 			<!--</resource>-->
 			<!--<resource>-->
-				<!--<directory>src/main/resources</directory>-->
+				<!--<directory>src/main/</directory>-->
 				<!--<includes>-->
 					<!--<include>**/**</include>-->
 				<!--</includes>-->
 				<!--<filtering>false</filtering>-->
 			<!--</resource>-->
 		<!--</resources>-->
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
 	</build>
 
 
