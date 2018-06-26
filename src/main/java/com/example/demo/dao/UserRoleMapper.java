@@ -22,4 +22,6 @@ public interface UserRoleMapper {
     int insertSelective(UserRole record);
 
     List<UserRole> getAllUsers();
+
+    void updateUserInfo(UserRole record);
 }

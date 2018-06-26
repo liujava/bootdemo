@@ -21,4 +21,6 @@ import java.util.List;
  ************************************************************************************/
 public interface UserService {
     List<UserRole> getAllUsers();
+
+    String updateUserInfo();
 }

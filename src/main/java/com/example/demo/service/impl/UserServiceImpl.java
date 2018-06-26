@@ -5,6 +5,7 @@ import com.example.demo.mapper.mappermodule.UserRole;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,5 +32,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserRole> getAllUsers() {
         return userRoleMapper.getAllUsers();
+    }
+
+    @Override
+    @Transactional
+    public String updateUserInfo() {
+        UserRole record = new UserRole();
+        record.setRoleId("1");
+        record.setUserId("1");
+        userRoleMapper.updateUserInfo(record);
+        // int x = 10 / 0; 模拟异常
+        return "成功";
     }
 }
